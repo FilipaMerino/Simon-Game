@@ -10,14 +10,13 @@ function playSound(name){
 };
 
 
-
 function animatePress(currentColour){
-
+    $("#" + currentColour).addClass("pressed").delay(100).queue(function(next){
+      $("#" + currentColour).removeClass("pressed");
+      next();
+    });
 
 };
-
-
-
 
 
 $(".btn").click(function(){
@@ -26,6 +25,8 @@ $(".btn").click(function(){
 
   $("#" + userChosenColour).fadeIn(50).fadeOut(50).fadeIn(50);
   playSound(userChosenColour);
+  animatePress(userChosenColour);
+
 
   userClickedPattern.push(userChosenColour);
   console.log(userClickedPattern);
@@ -43,5 +44,6 @@ function nextSequence() {
 
   $("#" + randomChosenColour).fadeIn(200).fadeOut(200).fadeIn(200);
   playSound(randomChosenColour);
+  animatePress(userChosenColour);
 
 };
