@@ -51,20 +51,27 @@ function checkAnswer(currentLevel){
       }, 1000);
     }
   } else {
+    playSound("wrong");
     $("body").addClass("game-over").delay(100).queue(function(next){
       $("body").removeClass("game-over");
       next();
     })
     $("h1").text("Game Over, Press Any Key to Restart");
-    var audio = new Audio("sounds/wrong.mp3");
-    audio.play();
-    console.log("FAIL");
+    startOver();
 };
 }
 
 
+function startOver() {
 
+  // reset the level value
+  // reset the gamePattern
+  // reset variable started
+    level = 0;
+    gamePattern = [];
+    started = false;
 
+};
 
 
 
