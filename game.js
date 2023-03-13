@@ -11,6 +11,15 @@ function playSound(name){
 
 
 
+function animatePress(currentColour){
+
+
+};
+
+
+
+
+
 $(".btn").click(function(){
 
   var userChosenColour = $(this).attr("id");
